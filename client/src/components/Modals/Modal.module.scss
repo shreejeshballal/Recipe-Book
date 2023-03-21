@@ -1,0 +1,52 @@
+.overlay {
+  background: rgba(0, 0, 0, 0.54);
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+  .card {
+    background: white;
+    width: 36%;
+    justify-content: center;
+    margin: 3rem auto;
+    padding: 2rem;
+    // height: 10%rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+
+    @media screen and (max-width: 750px) {
+      width: 90%;
+    }
+    h2 {
+      font-family: ubuntu;
+      font-size: 1.5rem;
+    }
+    p {
+      margin-top: 1rem;
+      font-family: poppins;
+      font-size: 1.2rem;
+    }
+    button {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.65rem 1rem;
+      font-family: poppins;
+      width: 5rem;
+      background: rgba(204, 203, 203, 0.834);
+      border-radius: 10px;
+      color: rgb(1, 1, 1);
+      transition: ease all 0.3s;
+      &:hover {
+        scale: 105%;
+        background: black;
+        color: white;
+      }
+    }
+  }
+}

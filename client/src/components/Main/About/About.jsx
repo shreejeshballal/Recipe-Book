@@ -8,15 +8,12 @@ const About = () => {
         <div className={classes.image}>
           <img src="./images/about.jpg" />
         </div>
-        <div className={classes.content}>
-          <p>
-            A place where you can find a wide range of delicious recipes for
-            every taste and occasion! Our mission is to help home cooks and food
-            lovers discover new and exciting dishes, as well as to provide
-            inspiration and guidance for those who want to experiment in the
-            kitchen.
-          </p>
-        </div>
+        <p>
+          A place where you can find a wide range of delicious recipes for every
+          taste and occasion! Our mission is to help home cooks and food lovers
+          discover new and exciting dishes, as well as to provide inspiration
+          and guidance for those who want to experiment in the kitchen.
+        </p>
       </div>
     </div>
   );
