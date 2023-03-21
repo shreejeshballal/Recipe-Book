@@ -45,8 +45,10 @@ const Login = () => {
       // navigate("/recipe")
     } catch (err) {
       setErr({
-        title: err.response.data.status,
-        message: err.response.data.message,
+        title: "ERROR!",
+        message: `${
+          err.response ? err.response.data.message : "Cannot connect to server"
+        }`,
         button: "Okay",
       });
       setPassword("");
