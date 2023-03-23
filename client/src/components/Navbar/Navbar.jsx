@@ -7,15 +7,13 @@ import { useMod } from "../context/modalContext";
 import { NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const { setErr } = useMod();
-  const navigate = useNavigate();
+  const [toggleLogin, setToggleLogin] = useState("login");
   const [cookies, setCookies, removeCookies] = useCookies(["access_token"]);
   const logout = () => {
     removeCookies("access_token");
     window.localStorage.removeItem("userID");
-
-    navigate("/");
     setToggle(false);
+    setToggleLogin("login");
   };
   return (
     <div className="navbar">
@@ -26,23 +24,36 @@ const Navbar = () => {
       <div className="nav-items">
         {!cookies.access_token ? (
           <>
-            <NavLink to="/" className="nav-item">
+            <NavLink
+              to="/"
+              className="nav-item"
+              onClick={(e) => setToggleLogin("login")}
+            >
               Home
             </NavLink>
-            <NavLink to="/about" className="nav-item">
+            <NavLink
+              to="/about"
+              className="nav-item"
+              onClick={(e) => setToggleLogin("login")}
+            >
               About
             </NavLink>
-
-            <NavLink to="/login">
-              <button>Login</button>
-            </NavLink>
+            {toggleLogin === "login" ? (
+              <NavLink to="/login" onClick={(e) => setToggleLogin("register")}>
+                <button>Login</button>
+              </NavLink>
+            ) : (
+              <NavLink to="/register" onClick={(e) => setToggleLogin("login")}>
+                <button>Register</button>
+              </NavLink>
+            )}
           </>
         ) : (
           <>
-            <NavLink to="/browse" className="nav-item">
+            <NavLink to="/explore" className="nav-item">
               Explore
             </NavLink>
-            <NavLink to="/recipes" className="nav-item">
+            <NavLink to="/myrecipes" className="nav-item">
               My Recipes
             </NavLink>
             <NavLink to="/fav" className="nav-item">
@@ -51,7 +62,9 @@ const Navbar = () => {
             {/* <NavLink to="/" className="nav-item">
               Profile
             </NavLink> */}
-            <button onClick={logout}>Logout</button>
+            <NavLink to="/">
+              <button onClick={logout}>Logout</button>
+            </NavLink>
           </>
         )}
       </div>
@@ -63,33 +76,57 @@ const Navbar = () => {
                 <NavLink
                   to="/"
                   className="nav-mob"
-                  onClick={() => setToggle(false)}
+                  onClick={() => {
+                    setToggle(false);
+                    setToggleLogin("login");
+                  }}
                 >
                   Home
                 </NavLink>
                 <NavLink
                   to="/about"
                   className="nav-mob"
-                  onClick={() => setToggle(false)}
+                  onClick={() => {
+                    setToggle(false);
+                    setToggleLogin("login");
+                  }}
                 >
                   About
                 </NavLink>
 
-                <NavLink to="/login">
-                  <button onClick={() => setToggle(false)}>Login</button>
-                </NavLink>
+                {toggleLogin === "login" ? (
+                  <NavLink
+                    to="/login"
+                    onClick={(e) => {
+                      setToggleLogin("register");
+                      setToggle(false);
+                    }}
+                  >
+                    <button>Login</button>
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/register"
+                    onClick={(e) => {
+                      setToggleLogin("login");
+                      setToggle(false);
+                    }}
+                  >
+                    <button>Register</button>
+                  </NavLink>
+                )}
               </>
             ) : (
               <>
                 <NavLink
-                  to="/browse"
+                  to="/explore"
                   className="nav-mob"
                   onClick={() => setToggle(false)}
                 >
                   Explore
                 </NavLink>
                 <NavLink
-                  to="/recipes"
+                  to="/myrecipes"
                   className="nav-mob"
                   onClick={() => setToggle(false)}
                 >
@@ -109,7 +146,7 @@ const Navbar = () => {
                 >
                   Profile
                 </NavLink> */}
-                <NavLink to="/login">
+                <NavLink to="/">
                   <button onClick={logout}>Logout</button>
                 </NavLink>
               </>

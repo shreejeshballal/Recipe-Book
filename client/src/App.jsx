@@ -8,9 +8,9 @@ import Login from "./components/Authentication/Login/Login";
 import Register from "./components/Authentication/Register/Register";
 import ModalProvider from "./components/context/modalContext";
 import MessageModal from "./components/Modals/MessageModal";
-import Browse from "./components/User/Browse/Browse";
+import Explore from "./components/User/Explore/Explore";
 import Fav from "./components/User/FavRecipe/Fav";
-import Recipe from "./components/User/Recipe/Recipe";
+import MyRecipe from "./components/User/MyRecipe/MyRecipe.jsx";
 import { useCookies } from "react-cookie";
 
 function App() {
@@ -29,8 +29,8 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/browse" element={<Browse />} />
-              <Route path="/recipes" element={<Recipe />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/myrecipes" element={<MyRecipe />} />
               <Route path="/fav" element={<Fav />} />
               {/* <Route path="/profile" element={<Register />} /> */}
             </>

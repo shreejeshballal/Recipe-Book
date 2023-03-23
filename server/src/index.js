@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { userRouter } from "./routes/users.js";
+import { recipesRouter } from "./routes/recipes.js";
 
 dotenv.config({ path: "./config.env" });
 
@@ -15,7 +16,7 @@ mongoose.connect(
 );
 
 app.use("/auth", userRouter);
-
+app.use("/recipes",recipesRouter)
 
 app.listen(3001, () => {
     console.log("Server started!");

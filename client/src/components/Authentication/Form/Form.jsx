@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Form.module.scss";
 import { NavLink } from "react-router-dom";
 const Form = ({
@@ -12,6 +12,14 @@ const Form = ({
   toggler,
   onSubmit,
 }) => {
+  const [showPw, setShowPw] = useState(false);
+  const checkHandler = (e) => {
+    if (e.target.checked) {
+      setShowPw(true);
+    } else {
+      setShowPw(false);
+    }
+  };
   return (
     <div className={classes["auth-card"]}>
       <div className={classes.comp}>
@@ -26,11 +34,19 @@ const Form = ({
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          type="password"
+          type={showPw ? "text" : "password"}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className={classes.showpw}>
+          <label>Show Password :</label>
+          <input
+            type="checkbox"
+            placeholder="Password"
+            onChange={checkHandler}
+          />
+        </div>
 
         <div className={classes.links}>
           {link1 ? <NavLink to="/forgotpw">{link1}</NavLink> : ""}
