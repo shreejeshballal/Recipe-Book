@@ -12,6 +12,7 @@ import Explore from "./components/User/Explore/Explore";
 import Fav from "./components/User/FavRecipe/Fav";
 import MyRecipe from "./components/User/MyRecipe/MyRecipe.jsx";
 import { useCookies } from "react-cookie";
+import Recipe from "./components/User/Recipe/Recipe";
 
 function App() {
   const [cookies] = useCookies(["access_token"]);
@@ -29,8 +30,9 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/explore" element={<Explore />} />
+              <Route path="/" element={<Explore />} />
               <Route path="/myrecipes" element={<MyRecipe />} />
+                <Route path="/myrecipes/:name" element={<Recipe />} />
               <Route path="/fav" element={<Fav />} />
               {/* <Route path="/profile" element={<Register />} /> */}
             </>

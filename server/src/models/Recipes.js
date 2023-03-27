@@ -9,7 +9,7 @@ const recipeSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "users",
         required: true,
-    },
+    }
 });
-
+recipeSchema.index({ 'name': 1, 'userOwner': 1 }, { unique: true });
 export const RecipeModel = mongoose.model("recipes", recipeSchema);

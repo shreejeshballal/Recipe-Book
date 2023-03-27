@@ -50,7 +50,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <NavLink to="/explore" className="nav-item">
+            <NavLink to="/" className="nav-item">
               Explore
             </NavLink>
             <NavLink to="/myrecipes" className="nav-item">
@@ -119,7 +119,7 @@ const Navbar = () => {
             ) : (
               <>
                 <NavLink
-                  to="/explore"
+                  to="/"
                   className="nav-mob"
                   onClick={() => setToggle(false)}
                 >

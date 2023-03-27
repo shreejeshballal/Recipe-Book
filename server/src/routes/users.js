@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
     status: "Successfully logged In!",
     message: "Have fun cooking with the recipes.",
     token: token,
-    userID: user.username,
+    userID: user._id,
   });
 });
 

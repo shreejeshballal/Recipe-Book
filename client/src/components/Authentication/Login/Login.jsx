@@ -42,7 +42,7 @@ const Login = () => {
       });
       setUsername("");
       setPassword("");
-      navigate("/explore");
+      navigate("/");
     } catch (err) {
       setErr({
         title: "ERROR!",

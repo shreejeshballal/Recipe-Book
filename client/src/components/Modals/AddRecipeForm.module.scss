@@ -1,0 +1,99 @@
+.onForm {
+  // max-height: 100%;
+  display: grid;
+  font-family: poppins;
+  gap: 1rem;
+  overflow: auto;
+  @media screen and (max-width: 600px) {
+    gap: 2rem;
+  }
+
+  padding: 2rem;
+  .buttons {
+    display: flex;
+    width: 50%;
+    gap: 1rem;
+    margin: auto;
+
+    button {
+      font-size: 1rem;
+      margin: 0 auto;
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      font-family: poppins;
+      transition: ease-in-out all 0.3s;
+      &:hover {
+        scale: 110%;
+        background: rgb(217, 127, 18);
+        color: white;
+      }
+    }
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    align-items: center;
+    // gap: 1rem;
+
+    &:nth-child(4) {
+      align-items: start;
+    }
+    label {
+      font-size: 1.2rem;
+      // width: rem
+    }
+    input,
+    textarea {
+      border-radius: 10px;
+      padding: 0.8rem;
+      font-family: poppins;
+      font-size: 1rem;
+      width: 30rem;
+      background: rgba(233, 233, 233, 0.855);
+      color: black;
+      transition: ease 0.3s all;
+
+      &:focus {
+        outline: none;
+        color: white;
+        background-color: rgba(226, 124, 0, 0.79);
+        &::placeholder {
+          color: rgb(252, 252, 252);
+        }
+      }
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
+    }
+    textarea {
+      // align-items: start;
+      resize: none;
+      height: 10rem;
+    }
+
+    .ingredients {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    // max-height: 90%;
+    overflow: auto;
+    gap: 2.5rem;
+    .inputContainer {
+      label {
+        // display: none;
+        font-weight: 500;
+      }
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+  }
+}
