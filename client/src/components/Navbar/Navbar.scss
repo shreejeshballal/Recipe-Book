@@ -46,16 +46,17 @@
       transition: 0.3s ease all;
       &:hover {
         scale: 110%;
-        color: rgb(255, 255, 255);
+        color: rgba(0, 0, 0, 0.729);
       }
     }
     button {
       padding: 0.65rem 1rem;
-      background: rgb(6, 6, 6);
+      background: #181349;
       color: rgb(255, 255, 255);
-      border-radius: 10px;
+      // border-radius: 10px;
       font-size: 1rem;
       font-family: poppins;
+      border: 2px solid black;
       cursor: pointer;
       width: 6rem;
 
@@ -63,7 +64,7 @@
       &:hover {
         background: rgb(255, 255, 255);
         color: rgb(0, 0, 0);
-        scale: 110%;
+        scale: 105%;
       }
     }
   }

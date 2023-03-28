@@ -13,6 +13,7 @@ import Fav from "./components/User/FavRecipe/Fav";
 import MyRecipe from "./components/User/MyRecipe/MyRecipe.jsx";
 import { useCookies } from "react-cookie";
 import Recipe from "./components/User/Recipe/Recipe";
+import Error from "./components/Error/Error";
 
 function App() {
   const [cookies] = useCookies(["access_token"]);
@@ -27,17 +28,19 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<Error />} />
             </>
           ) : (
             <>
               <Route path="/" element={<Explore />} />
               <Route path="/myrecipes" element={<MyRecipe />} />
-                <Route path="/myrecipes/:name" element={<Recipe />} />
+              <Route path="/myrecipes/:id" element={<Recipe />} />
               <Route path="/fav" element={<Fav />} />
-              {/* <Route path="/profile" element={<Register />} /> */}
+              <Route path="*" element={<Error />} />
             </>
           )}
         </Routes>
+
         <MessageModal />
       </ModalProvider>
     </BrowserRouter>

@@ -1,38 +1,94 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
-import { AiOutlineClockCircle } from "react-icons/ai";
+
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { AiFillHeart } from "react-icons/Ai";
 import { GrEdit, GrFavorite } from "react-icons/gr";
 import classes from "./Recipe.module.scss";
-import { useLocation } from "react-router-dom";
+import { useMod } from "../../context/modalContext";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 const Recipe = () => {
   let { state } = useLocation();
+  const navigate = useNavigate();
+  const { setErr } = useMod();
+  const { id } = useParams();
+
+  const deleteRecipe = async () => {
+    try {
+      const confirmation = window.confirm("Do you want to delete?");
+      if (confirmation) {
+        const response = await axios.delete(
+          "http://localhost:3001/recipes/myRecipes?id=" + id
+        );
+        setErr({
+          title: "Success",
+          message: "Deleted the recipe successfully",
+          button: "Okay",
+        });
+      } else {
+        return;
+      }
+    } catch (e) {
+      setErr({
+        title: "Failed",
+        message: e.message,
+        button: "Okay",
+      });
+    }
+  };
+
+  const favRecipe = async () => {
+    try {
+      console.log("hi");
+      const recipeID = id;
+      const userID = window.localStorage.getItem("userID");
+      console.log(recipeID, userID);
+      const response = await axios.put("http://localhost:3001/recipes", {
+        recipeID: recipeID,
+        userID: userID,
+      });
+      console.log(response);
+      setErr({
+        title: "Success",
+        message: "Added to favorites!",
+        button: "Okay",
+      });
+    } catch (e) {
+      setErr(e.response.data);
+    }
+  };
 
   return (
     <div className={classes.container}>
       <div className={classes.topwrap}>
         <div className={classes.left}>
           <div className={classes.title}>
-            <h1>{state.name}</h1>
-            <span>- {state.userOwner.username}</span>
+            <h1>{state.recipe.name}</h1>
+            <span>- {state.recipe.userOwner.username}</span>
           </div>
 
           <div className={classes.topbot}>
             <div className={classes.time}>
-              <p>{state.cookingTime}</p>
+              <p>{state.recipe.cookingTime}</p>
               <span>Minutes</span>
             </div>
 
             <div className={classes.hr}></div>
             <div className={classes.icons}>
-              <RiDeleteBin6Line />
-              <GrEdit />
-              <GrFavorite />
+              {state.ownRecipe ? (
+                <div onClick={deleteRecipe}>
+                  <RiDeleteBin6Line />
+                </div>
+              ) : null}
+              {/* <GrEdit /> */}
+              <div onClick={favRecipe}>
+                <AiFillHeart />
+              </div>
             </div>
           </div>
         </div>
         <div className={classes.right}>
-          <img src={state.imageUrl}></img>
+          <img src={state.recipe.imageUrl}></img>
         </div>
       </div>
 
@@ -40,17 +96,23 @@ const Recipe = () => {
         <div>
           <h2>Ingredients Required:</h2>
           <ol>
-            {state.ingredients.map((ingredient, index) => {
+            {state.recipe.ingredients.map((ingredient, index) => {
               return <li key={index}>{ingredient}</li>;
             })}
           </ol>
         </div>
         <div>
           <h2>Instructions:</h2>
-          <p>{state.instructions}</p>
+          <p>{state.recipe.instructions}</p>
         </div>
 
-        <button>Back</button>
+        <button
+          onClick={() => {
+            navigate("/myrecipes");
+          }}
+        >
+          Back
+        </button>
       </div>
     </div>
   );

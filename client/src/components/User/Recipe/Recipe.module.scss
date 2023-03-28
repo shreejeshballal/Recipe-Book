@@ -1,5 +1,4 @@
 .container {
-  //   margin-top: 5rem;
   display: flex;
   margin: 0rem auto 0rem auto;
   flex-direction: column;
@@ -12,8 +11,8 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-
     font-family: poppins;
+
     .left {
       display: flex;
       flex-direction: column;
@@ -26,7 +25,6 @@
         margin: 1rem;
         h1 {
           font-size: 3.7rem;
-          //   text-shadow: 2px 1px 7px rgba(61, 14, 14, 0.341);
         }
         span {
           margin-top: -0.4rem;
@@ -45,7 +43,7 @@
         .time {
           display: flex;
           flex-direction: column;
-          // gap: 0.4rem;
+
           align-items: center;
           p {
             font-size: 2.5rem;
@@ -66,19 +64,25 @@
           padding: 0rem 1rem;
           height: 4rem;
           border-radius: 10px;
-          gap: 2rem;
-          // background-color: rgba(255, 255, 255, 0.729);
+          gap: 1rem;
           background: #fad4d485;
           box-shadow: 0px 0px 10px 0.5px rgba(142, 141, 141, 0.523);
           align-items: center;
+          justify-content: center;
           font-size: 1.2rem;
-          svg {
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            border-radius: 50%;
+            height: 2.5rem;
+            background: #ffffff4b;
             transition: ease 0.2s all;
-
-            // background: rgb(255, 255, 255);
-            // background-color: rgb(149, 148, 147);
             &:hover {
               scale: 85%;
+              color: white;
+              background: rgb(114, 51, 51);
             }
           }
         }
@@ -94,14 +98,37 @@
         box-shadow: 0px 0px 10px 1px rgba(142, 141, 141, 0.893);
       }
     }
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      .left {
+        h1 {
+          text-align: center;
+          line-height: 1.3;
+        }
+        .topbot {
+          width: 80%;
+        }
+      }
+      .right {
+        width: 90%;
+        img {
+          margin: auto;
+          width: 100%;
+        }
+      }
+    }
   }
 
   .content {
-    margin-top: 2rem;
+    // margin-top: 2rem;
+    margin: 2rem auto 0 auto;
     display: flex;
     flex-direction: column;
     align-items: left;
-    width: 1024px;
+    max-width: 900px;
     gap: 3rem;
     padding: 2rem;
     font-family: poppins;
@@ -120,6 +147,7 @@
       }
     }
     button {
+      margin: auto;
       width: 6rem;
       padding: 0.65rem 1rem;
       border-radius: 5px;
@@ -127,12 +155,10 @@
       font-weight: 600;
       font-family: Poppins;
       transition: 0.2s all ease;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.608);
-      // color: rgb(77, 76, 76);
-      background: rgb(250, 153, 153);
+      background: #fad4d485;
+      box-shadow: 0px 0px 10px 0.5px rgba(142, 141, 141, 0.523);
       &:hover {
         scale: 105%;
-        // color: rgb(255, 255, 255);
       }
     }
   }

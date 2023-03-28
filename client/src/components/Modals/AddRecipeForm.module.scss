@@ -11,7 +11,7 @@
   padding: 2rem;
   .buttons {
     display: flex;
-    width: 50%;
+    width: 90%;
     gap: 1rem;
     margin: auto;
 
@@ -24,7 +24,7 @@
       transition: ease-in-out all 0.3s;
       &:hover {
         scale: 110%;
-        background: rgb(217, 127, 18);
+        background: #255c8d;
         color: white;
       }
     }
@@ -59,7 +59,7 @@
       &:focus {
         outline: none;
         color: white;
-        background-color: rgba(226, 124, 0, 0.79);
+        background-color: #255c8d;
         &::placeholder {
           color: rgb(252, 252, 252);
         }

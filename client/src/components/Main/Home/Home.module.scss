@@ -2,10 +2,11 @@
   display: flex;
   gap: 2rem;
   padding: 6rem 1rem 0rem;
-  background: #29d0fefc;
+  background: #255c8d;
   padding-bottom: 2rem;
   justify-content: space-around;
   align-items: center;
+
   font-family: "Poppins", sans-serif;
 
   @media screen and (max-width: 700px) {
@@ -27,11 +28,15 @@
       font-size: 4rem;
       font-family: "Rancho", cursive;
       text-align: center;
+      color: #ffd12f;
     }
     p {
       font-size: 1.5rem;
       text-align: center;
       font-weight: 500;
+      // color: #ffd12f;
+      // text-shadow: 0px 0px 10px #0b0b0b;
+      color: white;
     }
     .button {
       cursor: pointer;
@@ -39,6 +44,7 @@
       background: #0b0b0b;
       color: white;
       border-radius: 10px;
+      // box-shadow: 0 0 5px 0 rgb(0, 0, 0);
       font-size: 1.2rem;
       transition: 0.3s ease all;
       &:hover {
@@ -47,6 +53,7 @@
         scale: 110%;
       }
     }
+
     @media screen and (max-width: 1000px) {
       width: 100%;
       padding: 0rem 1rem;
@@ -72,5 +79,8 @@
       font-size: 3rem;
       width: 20rem;
     }
+  }
+  .bar {
+    width: 100%;
   }
 }

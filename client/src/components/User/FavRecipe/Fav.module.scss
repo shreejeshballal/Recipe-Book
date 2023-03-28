@@ -166,13 +166,14 @@
     }
   }
 }
+
 .noFav {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  width: 50rem;
+  width: 80%;
   // margin-top: -2rem;
 
   img {
@@ -196,10 +197,11 @@
       scale: 110%;
     }
   }
+
   @media screen and (max-width: 950px) {
     & > h1 {
       width: 90%;
       font-size: 1.5rem;
-    } 
+    }
   }
 }
