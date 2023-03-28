@@ -58,14 +58,14 @@
       font-size: 1rem;
       font-weight: 600;
       font-family: poppins;
-      border: 2px solid black;
+      // border: 2px solid black;
       cursor: pointer;
       width: 6rem;
 
       transition: 0.3s ease all;
       &:hover {
-        background: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        // background: rgb(255, 255, 255);
+        // color: rgb(0, 0, 0);
         scale: 105%;
       }
     }
