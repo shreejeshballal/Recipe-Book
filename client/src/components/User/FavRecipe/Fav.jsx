@@ -49,14 +49,15 @@ const Fav = () => {
     <div className={classes.container}>
       <h1>Favorites</h1>
       {filterdRecipe?.length > 0 ? (
-        (<div className={classes.searchBar}>
-          <input
-            type="text"
-            placeholder="Search for recipe"
-            onChange={(e) => setSearchInput(e.target.value)}
-          ></input>
-          <AiOutlineSearch className={classes.icon} />
-        </div>)(
+        <>
+          <div className={classes.searchBar}>
+            <input
+              type="text"
+              placeholder="Search for recipe"
+              onChange={(e) => setSearchInput(e.target.value)}
+            ></input>
+            <AiOutlineSearch className={classes.icon} />
+          </div>
           <div className={classes.cardwrapper}>
             {filterdRecipe?.map((recipe, index) => {
               return (
@@ -88,7 +89,7 @@ const Fav = () => {
               );
             })}
           </div>
-        )
+        </>
       ) : (
         <div className={classes.noFav}>
           <img src="./images/ramen.png"></img>
