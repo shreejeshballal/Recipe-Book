@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiFillHeart } from "react-icons/Ai";
-import { GrEdit, GrFavorite } from "react-icons/gr";
+import { AiFillHeart } from "react-icons/ai";
+
 import classes from "./Recipe.module.scss";
 import { useMod } from "../../context/modalContext";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
