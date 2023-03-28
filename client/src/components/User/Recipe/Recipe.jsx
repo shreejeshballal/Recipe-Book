@@ -26,6 +26,7 @@ const Recipe = () => {
           message: "Deleted the recipe successfully",
           button: "Okay",
         });
+        navigate("/myrecipes");
       } else {
         return;
       }

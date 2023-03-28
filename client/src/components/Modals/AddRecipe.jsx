@@ -68,7 +68,11 @@ const AddRecipe = (props) => {
             recipe
           );
           props.setTog(false);
-          // setErr(response.data);
+          setErr({
+            title: "Success",
+            message: "Recipe added successfully!",
+            button: "Okay",
+          });
         } catch (err) {
           console.log(err);
           setErr({
