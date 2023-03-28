@@ -21,7 +21,8 @@ const Fav = () => {
       try {
         const userID = window.localStorage.getItem("userID");
         const response = await axios.get(
-          "http://localhost:3001/recipes/fav?userID=" + userID
+          "https://flavour-verse-backend.onrender.com/recipes/fav?userID=" +
+            userID
         );
         console.log(response.data);
 

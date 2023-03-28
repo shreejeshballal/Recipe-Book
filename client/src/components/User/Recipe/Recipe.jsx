@@ -18,7 +18,8 @@ const Recipe = () => {
       const confirmation = window.confirm("Do you want to delete?");
       if (confirmation) {
         const response = await axios.delete(
-          "http://localhost:3001/recipes/myRecipes?id=" + id
+          "https://flavour-verse-backend.onrender.com/recipes/myRecipes?id=" +
+            id
         );
         setErr({
           title: "Success",
@@ -43,10 +44,13 @@ const Recipe = () => {
       const recipeID = id;
       const userID = window.localStorage.getItem("userID");
       console.log(recipeID, userID);
-      const response = await axios.put("http://localhost:3001/recipes", {
-        recipeID: recipeID,
-        userID: userID,
-      });
+      const response = await axios.put(
+        "https://flavour-verse-backend.onrender.com/recipes",
+        {
+          recipeID: recipeID,
+          userID: userID,
+        }
+      );
       console.log(response);
       setErr({
         title: "Success",

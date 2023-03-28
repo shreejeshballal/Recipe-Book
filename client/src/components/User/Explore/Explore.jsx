@@ -17,7 +17,9 @@ const Explore = () => {
   useEffect(() => {
     const fetechrecipe = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes");
+        const response = await axios.get(
+          "https://flavour-verse-backend.onrender.com/recipes"
+        );
         console.log(response);
         setMyRecipes(response.data);
         console.log(myRecipes);

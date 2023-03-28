@@ -20,7 +20,8 @@ const MyRecipe = () => {
       try {
         const userID = window.localStorage.getItem("userID");
         const response = await axios.get(
-          "http://localhost:3001/recipes/myRecipes?userID=" + userID
+          "https://flavour-verse-backend.onrender.com/recipes/myRecipes?userID=" +
+            userID
         );
         console.log(response);
         setMyRecipes(response.data.myRecipes);

@@ -64,7 +64,7 @@ const AddRecipe = (props) => {
       ) {
         try {
           const response = await axios.post(
-            "http://localhost:3001/recipes",
+            "https://flavour-verse-backend.onrender.com/recipes",
             recipe
           );
           props.setTog(false);

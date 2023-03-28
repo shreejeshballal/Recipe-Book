@@ -21,10 +21,13 @@ const Register = () => {
       });
     }
     try {
-      await axios.post("http://localhost:3001/auth/register", {
-        username,
-        password,
-      });
+      await axios.post(
+        "https://flavour-verse-backend.onrender.com/auth/register",
+        {
+          username,
+          password,
+        }
+      );
       setErr({
         title: "Registration Successfull!",
         message: "You can now login with your username and password",
