@@ -77,7 +77,8 @@ const AddRecipe = (props) => {
           console.log(err);
           setErr({
             title: "Failed",
-            message: "Recipe already exists under this user",
+            message:
+              "Please fill all the fields and make sure the recipe does not already exist!",
             button: "Okay",
           });
         }
