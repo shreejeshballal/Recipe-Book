@@ -113,7 +113,7 @@ const Recipe = () => {
 
         <button
           onClick={() => {
-            navigate("/myrecipes");
+            navigate(-1);
           }}
         >
           Back
